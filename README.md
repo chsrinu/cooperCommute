@@ -1,2 +1,2 @@
 # cooperCommute
-Mobile Application to ease booking and cancelling shift cabs
+Mobile Application to ease booking and cancelling of shift cabs
