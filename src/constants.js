@@ -1,0 +1,9 @@
+export const BOOK_CAB = 'Book Cab';
+export const MANAGE_TRIPS = 'Manage Trips';
+export const MY_PROFILE = 'MyProfile';
+export const CONFIRM_BOOKING = 'Confirm Booking';
+export const ACTION_TIMER_RESET = 'resetTime';
+export const ACTION_SHOW_TIMER = 'showTimer';
+export const ACTION_HIDE_TIMER = 'hideTimer';
+export const ACTION_PICKUP_TIME = 'pickUpTime';
+export const ACTION_SHIFT_SELECTED = 'shiftSelected';
