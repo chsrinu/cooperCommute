@@ -3,7 +3,7 @@ import { View, Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Carousel from 'react-native-carousel';
 import images from '../../images';
-import Button from './commonComponents/Button';
+import { Button } from './commonComponents';
 import { BOOK_CAB, MANAGE_TRIPS, MY_PROFILE } from '../constants';
 
 
@@ -19,7 +19,7 @@ class ImageCarousal extends Component {
         <View style={styles.containerStyle}>
           <Image source={images.menuBookCab} />
           <Button
-            onPress={() => Actions.bookCab()}
+            onPress={() => Actions.bookAndManageCabs({ bookingCab: true })}
             style={styles.buttonStyle}
           >{BOOK_CAB}</Button>
         </View>
@@ -27,7 +27,7 @@ class ImageCarousal extends Component {
           <Image source={images.menuManageTrips} />
           <Button
             style={styles.buttonStyle}
-            onPress={() => Actions.manageTrips()}
+            onPress={() => Actions.bookAndManageCabs({ title: 'Manage Trips' })}
           >{MANAGE_TRIPS}</Button>
         </View>
         <View style={styles.containerStyle}>

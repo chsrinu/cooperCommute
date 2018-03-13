@@ -1,3 +1,2 @@
-export * from './BookCab';
-export * from './ManageTrips';
+export * from './BookAndManageCabs';
 export * from './UserProfile';

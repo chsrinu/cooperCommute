@@ -35,9 +35,20 @@ export const setPickUpTime = (time) => (
 );
 
 export const shiftSelected = ({ shift, date }) => {
-  console.log(shift);
+  console.log(shift, date);
+  //with this action create a shift for a particular datetime
+  //override the shift selected for a particular datetime
+  //example a map 22/06/1992:s1 => change value =>22/06/1992:s2
   return ({
     type: ACTION_SHIFT_SELECTED,
     payload: { date, shift }
+  });
+};
+
+export const shiftUnselected = ({ shift, shiftDate }) => {
+  console.log('cancelled shift', shift, shiftDate);
+  return ({
+    type: ACTION_SHIFT_SELECTED,
+    payload: { shiftDate, shift }
   });
 };

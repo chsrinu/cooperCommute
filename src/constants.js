@@ -7,3 +7,6 @@ export const ACTION_SHOW_TIMER = 'showTimer';
 export const ACTION_HIDE_TIMER = 'hideTimer';
 export const ACTION_PICKUP_TIME = 'pickUpTime';
 export const ACTION_SHIFT_SELECTED = 'shiftSelected';
+export const themeColor = '#54C0EB';
+export const shiftSelectedColor = 'green';
+export const ListItemTextSize = 2.75;

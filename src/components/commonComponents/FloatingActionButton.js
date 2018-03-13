@@ -42,4 +42,4 @@ const styles = {
   },
 
 };
-export default FloatingActionButton;
+export { FloatingActionButton };

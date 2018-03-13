@@ -30,4 +30,4 @@ const styles = {
   justifyContent: 'center'
 },
 };
-export default NumericButtons;
+export { NumericButtons };

@@ -13,4 +13,4 @@ const styles = {
   }
 };
 
-export default CaptionText;
+export { CaptionText };

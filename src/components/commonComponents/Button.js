@@ -26,4 +26,4 @@ ButtonTextStyle: {
  }
 };
 
-export default Button;
+export { Button };

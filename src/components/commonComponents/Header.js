@@ -43,4 +43,4 @@ const Styles = {
   }
 };
 
-export default Header;
+export { Header };

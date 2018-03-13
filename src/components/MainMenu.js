@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import ImageCarousal from './ImageCarousal';
-import Header from './commonComponents/Header';
+import { Header } from './commonComponents';
 
 
  const MainMenu = () => (

@@ -5,7 +5,6 @@ import { responsiveFontSize } from 'react-native-responsive-dimensions';
 const TextHeading = ({ label, size = 4 }) => (
 <Text style={[styles.textStyle, { fontSize: responsiveFontSize(size) }]}> {label} </Text>
 );
-export default TextHeading;
 
 const styles = {
   textStyle: {
@@ -15,3 +14,4 @@ const styles = {
     fontWeight: '600',
    }
 };
+export { TextHeading };

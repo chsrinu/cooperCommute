@@ -3,9 +3,8 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import DateTimePicker from 'react-native-modal-datetime-picker';
-import NumericButtons from '../commonComponents/NumericButtons';
-import TextHeading from '../commonComponents/TextHeading';
-import Button from '../commonComponents/Button';
+import { TextHeading, Button, NumericButtons } from '../commonComponents';
+
 import * as actions from '../../actions';
 
 class AdhocCab extends Component {
@@ -28,9 +27,12 @@ class AdhocCab extends Component {
           onCancel={this.hideDateTimePicker}
           mode='time'
           is24Hour={false}
+          datePickerModeAndroid={'calendar'}
         />
         <Button onPress={() => this.props.showResetTimer()}> Reset </Button>
-        <Button onPress={() => Actions.bookingConfirmation()}> Proceed </Button>
+        <Button
+        onPress={() => Actions.bookingConfirmation({ shiftType: 'adhoc' })}
+        > Proceed </Button>
       </View>
     );
   }

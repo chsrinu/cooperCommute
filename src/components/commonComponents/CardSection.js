@@ -1,5 +1,6 @@
 import React from 'react';
 import { View } from 'react-native';
+import { themeColor } from '../../constants';
 
 const CardSection = (props) => (
   <View style={styles.containerStyle}>
@@ -13,7 +14,7 @@ const styles = {
     padding: 10,
     borderWidth: 1,
     borderRadius: 1,
-    borderColor: '#54C0EB'
+    borderColor: themeColor
   }
 };
-export default CardSection;
+export { CardSection };

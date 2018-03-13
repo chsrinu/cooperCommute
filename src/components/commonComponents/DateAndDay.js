@@ -1,7 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
-import TextHeading from './TextHeading';
-import CaptionText from './CaptionText';
+import { TextHeading, CaptionText } from '../commonComponents';
+
 
 const DateAndDay = (props) => (
   <View style={styles.containerStyle}>
@@ -16,4 +16,4 @@ const styles = {
     alignItems: 'center',
   }
 };
-export default DateAndDay;
+export { DateAndDay };
