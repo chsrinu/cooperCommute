@@ -1,4 +1,4 @@
-import { Text, View, Image } from 'react-native';
+import { Text, View, Image, TouchableOpacity } from 'react-native';
 import React from 'react';
 import { responsiveHeight,
           responsiveWidth,
@@ -6,12 +6,13 @@ import { responsiveHeight,
         } from 'react-native-responsive-dimensions';
 import images from '../../../images';
 
-
 const Header = (props) =>
 (
     <View style={Styles.viewStyle}>
      <Text style={Styles.textStyle}> {props.headerText}</Text>
-     <Image source={images.iconLogOut} style={Styles.ImageStyle} />
+     <TouchableOpacity style={Styles.ButtonStyles} onPress={props.onPress}>
+        <Image source={images.iconLogOut} style={Styles.ButtonStyles} />
+     </TouchableOpacity>
     </View>
 );
 
@@ -22,12 +23,13 @@ const Styles = {
     fontFamily: 'monospace',
     fontWeight: 'bold'
   },
-  ImageStyle: {
-     width: responsiveWidth(8),
-     height: responsiveHeight(8),
-     position: 'absolute',
-     right: 0
-  },
+  ButtonStyles: {
+    width: responsiveWidth(8),
+    height: responsiveHeight(8),
+    position: 'absolute',
+    right: 0
+},
+
   viewStyle: {
     flexDirection: 'row',
     justifyContent: 'center',
