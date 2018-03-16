@@ -7,7 +7,8 @@ const Images = {
   iconToandFro: require('./repeat.png'),
   iconTo: require('./direction-arrow-pointing-right.png'),
   rejectArrow: require('./double-left-chevron.png'),
-
+  MrCooperLogo: require('./MrCooperLogo.png'),
+  Profile1: require('./Profile1.png'),
 };
 
 export default Images;

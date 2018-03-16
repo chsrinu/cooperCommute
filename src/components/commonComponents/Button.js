@@ -12,7 +12,7 @@ const Button = ({ onPress, children }) => (
 );
 const styles = {
   ButtonStyles: {
-  backgroundColor: '#fff',
+  backgroundColor: 'black',
   borderRadius: 5,
   padding: 10,
   marginLeft: 5,

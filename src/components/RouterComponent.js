@@ -5,7 +5,8 @@ import MainMenu from './MainMenu';
 import { BOOK_CAB, MY_PROFILE, CONFIRM_BOOKING } from '../constants';
 import { BookAndManageCabs, UserProfile } from './submenu';
 import BookingConfirmation from './BookingConfirmation';
-
+import Splash from './Splash';
+import Login from './Login';
 export default class RouterComponent extends Component {
 
 
@@ -16,11 +17,20 @@ render() {
 
   <Router>
     <Scene
+    key='splash'
+    hideNavBar
+    component={Splash}/>
+    <Scene 
+    key='Login'
+    hideNavBar
+    component={Login}/>
+    <Scene
       key='main'
       titleStyle={titleStyle}
       barButtonIconStyle={{ tintColor: 'white' }}
       navigationBarStyle={navigationBarStyle}
     >
+
       <Scene
         hideNavBar
         key='menuScreen'
