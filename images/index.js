@@ -9,6 +9,9 @@ const Images = {
   rejectArrow: require('./rejectArrow.png'),
   MrCooperLogo: require('./MrCooperLogo.png'),
   Profile1: require('./Profile1.png'),
+  cooper: require('./cooper.png'),
+  car: require('./car.png'),
+  commute: require('./commute.png')
 };
 
 export default Images;

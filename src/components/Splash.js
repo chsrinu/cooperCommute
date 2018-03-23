@@ -34,7 +34,7 @@ export default class App extends Component<Props> {
       <View style={styles.container}>
        <Image source = {images.MrCooperLogo}>
        </Image>
-       <ActivityIndicator size='large' color="#0000ff" />
+       <ActivityIndicator size='large' color="#00b4d2" />
       </View>
     );
   }

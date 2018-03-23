@@ -35,13 +35,11 @@ class CurrentWeekTrips extends Component {
     <View>
       <List
       listType={'manageCabs'}
-      data={this.state.data}
+      data={this.data}
       />
     </View>
     );
   }
 }
-function mapStateToProps(state) {
-  return { data: state.currentWeekData.weeklyData };
-}
-export default connect(mapStateToProps)(CurrentWeekTrips);
+
+export default CurrentWeekTrips

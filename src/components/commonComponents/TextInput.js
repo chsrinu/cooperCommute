@@ -28,7 +28,8 @@ const styles = StyleSheet.create({
     },
     textstyle:{
        fontWeight: 'bold',
-       marginLeft:10,
+       marginBottom:10,
+       color:'white'
     },
     viewStyle:{
         marginTop:15
