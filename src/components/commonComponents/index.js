@@ -6,7 +6,6 @@ export * from './FloatingActionButton';
 export * from './Header';
 export * from './List';
 export * from './NormalText';
-export * from './SButton';
 export * from './NumericButtons';
 export * from './TextHeading';
 export * from './TextInput';

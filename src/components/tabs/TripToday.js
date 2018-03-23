@@ -1,9 +1,17 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import axios from 'axios';
 import { View } from 'react-native';
 import { List } from '../commonComponents';
 
 class TripToday extends Component {
-  confirmationData = [
+  state = { data: [], spinnerVisibility: true }
+  componentWillUpdate() {
+    axios
+    .get('httpRequest')
+    .then(response => this.setState({ spinnerVisibility: false, data: response }));
+  }
+ confirmationData = [
     {
       key: 1,
       from: 'Guindy',
@@ -18,10 +26,13 @@ class TripToday extends Component {
     <View>
       <List
       listType={'TripToday'}
-      data={this.confirmationData}
+      data={this.state.data}
       />
     </View>
     );
   }
 }
-export default TripToday;
+function mapStateToProps(state) {
+  return { data: state.currentWeekData.dailyData };
+}
+export default connect(mapStateToProps)(TripToday);

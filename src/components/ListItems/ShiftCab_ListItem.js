@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { View } from 'react-native';
-import { themeColor, shiftSelectedColor } from '../../constants';
+import { themeColor, shiftSelectedColor, FABTextColor } from '../../constants';
 import { CardSection, FloatingActionButton, DateAndDay, CaptionText } from '../commonComponents';
 import * as actions from '../../actions';
 
 const INITIAL_STATE = {
   s1Color: themeColor,
   s2Color: themeColor,
-  s3Color: themeColor
+  s3Color: themeColor,
+  s1TextColor: FABTextColor,
+  s2TextColor: FABTextColor,
+  s3TextColor: FABTextColor,
 };
 
 class ShiftCabListItem extends Component {
@@ -19,36 +22,45 @@ class ShiftCabListItem extends Component {
     switch (shift) {
       case 's1':
         if (this.state.s1Color === shiftSelectedColor) {
-          this.unselectAll('s1');
+          this.unselectAll();
         } else {
               this.setState({
                 s1Color: shiftSelectedColor,
+                s1TextColor: themeColor,
                 s2Color: themeColor,
-                s3Color: themeColor
+                s2TextColor: FABTextColor,
+                s3Color: themeColor,
+                s3TextColor: FABTextColor,
               });
               this.props.shiftSelected({ shift: 's1', shiftDate: date });
           }
       break;
       case 's2' :
         if (this.state.s2Color === shiftSelectedColor) {
-          this.unselectAll('s2');
+          this.unselectAll();
         } else {
               this.setState({
                 s1Color: themeColor,
+                s1TextColor: FABTextColor,
                 s2Color: shiftSelectedColor,
-                s3Color: themeColor
+                s2TextColor: themeColor,
+                s3Color: themeColor,
+                s3TextColor: FABTextColor,
               });
               this.props.shiftSelected({ shift: 's2', shiftDate: date });
           }
       break;
       case 's3' :
         if (this.state.s3Color === shiftSelectedColor) {
-          this.unselectAll('s3');
+          this.unselectAll();
         } else {
                 this.setState({
                   s1Color: themeColor,
+                  s1TextColor: FABTextColor,
                   s2Color: themeColor,
-                  s3Color: shiftSelectedColor
+                  s2TextColor: FABTextColor,
+                  s3Color: shiftSelectedColor,
+                  s3TextColor: themeColor,
                 });
               this.props.shiftSelected({ shift: 's3', shiftDate: date });
           }
@@ -56,9 +68,9 @@ class ShiftCabListItem extends Component {
       default: break;
     }
   }
-  unselectAll(tempshift) {
+  unselectAll() {
     this.setState(INITIAL_STATE);
-    this.props.shiftUnselected({ shift: tempshift, date: this.props.data.date });
+    this.props.shiftUnselected({ shiftDate: this.props.data.date });
   }
   render() {
     const { date, day } = this.props.data;
@@ -66,7 +78,7 @@ class ShiftCabListItem extends Component {
       <CardSection>
       <View>
         <FloatingActionButton
-        bgColor={this.state.s1Color} label={'S1'}
+        bgColor={this.state.s1Color} textColor={this.state.s1TextColor} label={'S1'}
         onPress={() => this.updateCardSection('s1')}
         />
         <CaptionText text={'6AM-3PM'} />
@@ -74,6 +86,7 @@ class ShiftCabListItem extends Component {
       <View>
         <FloatingActionButton
         bgColor={this.state.s2Color}
+        textColor={this.state.s2TextColor}
         label={'S2'}
         onPress={() => this.updateCardSection('s2')}
         />
@@ -82,6 +95,7 @@ class ShiftCabListItem extends Component {
       <View>
         <FloatingActionButton
          bgColor={this.state.s3Color} label={'S3'}
+         textColor={this.state.s3TextColor}
          onPress={() => this.updateCardSection('s3')}
         />
         <CaptionText text={'10PM-7AM'} />
@@ -91,9 +105,5 @@ class ShiftCabListItem extends Component {
     );
   }
 }
-/*function mapStateToProps(state) {
-  return {
-  };
-}*/
 
 export default connect(null, actions)(ShiftCabListItem);

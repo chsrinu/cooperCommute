@@ -4,19 +4,19 @@ import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import DateTimePicker from 'react-native-modal-datetime-picker';
 import { TextHeading, Button, NumericButtons } from '../commonComponents';
-
+import images from '../../../images';
 import * as actions from '../../actions';
+import { ACTION_ADHOC_CAB_REQUEST } from '../../constants';
 
 class AdhocCab extends Component {
   handleDatePicked = (time) => {
-    this.props.hideResetTimer();
+    console.log('updatedTime', time);
     this.props.setPickUpTime(time);
   }
   hideDateTimePicker = () => {
     this.props.hideResetTimer();
   }
   render() {
-    console.log('time is ', this.props);
     return (
       <View style={{ flex: 1 }}>
         <TextHeading label={'Pick Up'} />
@@ -31,7 +31,11 @@ class AdhocCab extends Component {
         />
         <Button onPress={() => this.props.showResetTimer()}> Reset </Button>
         <Button
-        onPress={() => Actions.bookingConfirmation({ shiftType: 'adhoc' })}
+        onPress={() => {
+          this.props.updateCabCategory(false);
+          Actions.bookingConfirmation(
+            { imgsrc: images.iconTo, action: ACTION_ADHOC_CAB_REQUEST });
+        }}
         > Proceed </Button>
       </View>
     );
@@ -39,10 +43,9 @@ class AdhocCab extends Component {
 }
 
 function mapStateToProps(state) {
-  console.log(state);
 return {
-     isDateTimePickerVisible: state.resetTimer.isDateTimePickerVisible,
-     pickUpTime: state.resetTimer.pickUpTime
+     isDateTimePickerVisible: state.adhocCabData.isDateTimePickerVisible,
+     pickUpTime: state.adhocCabData.datesArray[0].boardingTime
    };
  }
 export default connect(mapStateToProps, actions)(AdhocCab);

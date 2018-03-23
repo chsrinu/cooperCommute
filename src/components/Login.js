@@ -6,14 +6,12 @@
 
 import React, { Component } from 'react';
 import {
-  Platform,
   StyleSheet,
-  ScrollView,
   Image,
   View,
   Text
 } from 'react-native';
-import { Actions, ActionConst } from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 import { Button, EditText } from './commonComponents';
 import images from '../../images';
 
@@ -22,7 +20,6 @@ export default class Login extends Component<Props> {
   static navigationOptions = {
     header:null
 }
-
 
   render() {
     return (
@@ -34,7 +31,7 @@ export default class Login extends Component<Props> {
        <Text style={styles.textStyle}>Login</Text>
        <EditText placeText={'Enter the username'} text={'Email:'} sEn={false}/>
        <EditText placeText={'Enter the password'} text={'password:'} sEn={true}/>
-       <Button  onPress={() => {Actions.main(); Actions.menuScreen()}}/>
+       <Button onPress={() => { Actions.main(); }} />
        </View>
      </View>
     );
@@ -55,13 +52,13 @@ const styles = StyleSheet.create({
   viewStyle:{
     flex:1,
   },
-  viewStyle1:{
-    flex:2,
+  viewStyle1: {
+    flex: 2,
     backgroundColor: '#1b6c92',
-    borderRadius:10,
-    padding:10,
-    marginHorizontal:25,
-    marginBottom:25
+    borderRadius: 10,
+    padding: 10,
+    marginHorizontal: 25,
+    marginBottom: 25
   },
   textStyle: {
     fontSize: 25,

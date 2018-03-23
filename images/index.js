@@ -4,9 +4,9 @@ const Images = {
   loginBg: require('./login_bg.gif'),
   menuProfile: require('./profile.png'),
   iconLogOut: require('./logOut.png'),
-  iconToandFro: require('./repeat.png'),
-  iconTo: require('./direction-arrow-pointing-right.png'),
-  rejectArrow: require('./double-left-chevron.png'),
+  iconToandFro: require('./roundTrip.png'),
+  iconTo: require('./singleTrip.png'),
+  rejectArrow: require('./rejectArrow.png'),
   MrCooperLogo: require('./MrCooperLogo.png'),
   Profile1: require('./Profile1.png'),
 };

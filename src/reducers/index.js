@@ -1,7 +1,12 @@
 import { combineReducers } from 'redux';
-import ResetTimeReducer from './ResetTimeReducer';
-
+import AdhocCabReducer from './AdhocCabReducer';
+import ShiftCabReducer from './ShiftCabReducer';
+import SaveShiftType from './SaveShiftType';
+import ManageTripReducer from './ManageTripReducer';
 
 export default combineReducers({
-    resetTimer: ResetTimeReducer,
+    adhocCabData: AdhocCabReducer,
+    shiftCabData: ShiftCabReducer,
+    cabCategory: SaveShiftType,
+    manageTripData: ManageTripReducer
 });

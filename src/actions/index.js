@@ -1,9 +1,11 @@
 import {
         ACTION_TIMER_RESET,
         ACTION_SHOW_TIMER,
-        ACTION_HIDE_TIMER,
         ACTION_PICKUP_TIME,
-        ACTION_SHIFT_SELECTED
+        ACTION_SHIFT_SELECTED,
+        ACTION_CURRENT_WEEK_DATES,
+        ACTION_SHIFT_UNSELECTED,
+        ACTION_IS_SHIFT_CAB,
       } from '../constants';
 
 export const ResetTimer = (hours, minutes, session) => (
@@ -12,18 +14,16 @@ export const ResetTimer = (hours, minutes, session) => (
     payload: `${hours}:${minutes} ${session}`
   }
 );
-
+export const updateCabCategory = (update) => (
+  {
+    type: ACTION_IS_SHIFT_CAB,
+    payload: update
+  }
+);
 export const showResetTimer = () => (
   {
     type: ACTION_SHOW_TIMER,
     payload: true
-  }
-);
-
-export const hideResetTimer = () => (
-  {
-    type: ACTION_HIDE_TIMER,
-    payload: false
   }
 );
 
@@ -34,21 +34,29 @@ export const setPickUpTime = (time) => (
   }
 );
 
-export const shiftSelected = ({ shift, date }) => {
-  console.log(shift, date);
-  //with this action create a shift for a particular datetime
-  //override the shift selected for a particular datetime
-  //example a map 22/06/1992:s1 => change value =>22/06/1992:s2
+export const shiftSelected = ({ shift, shiftDate }) => {
+  console.log(shift, shiftDate);
   return ({
     type: ACTION_SHIFT_SELECTED,
-    payload: { date, shift }
+    payload: { dateKey: shiftDate, timeKey: shift, cabType: 'shift' }
   });
 };
 
-export const shiftUnselected = ({ shift, shiftDate }) => {
-  console.log('cancelled shift', shift, shiftDate);
+export const shiftUnselected = ({ shiftDate }) => {
+  console.log('cancelled shift', shiftDate);
   return ({
-    type: ACTION_SHIFT_SELECTED,
-    payload: { shiftDate, shift }
+    type: ACTION_SHIFT_UNSELECTED,
+    payload: { dateKey: shiftDate }
   });
 };
+export const saveDates = () => (
+  {
+      type: ACTION_CURRENT_WEEK_DATES,
+      payload: true
+  }
+);
+export const submitCabRequest = (action) => (
+  {
+      type: action,
+  }
+);

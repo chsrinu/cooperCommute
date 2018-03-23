@@ -7,21 +7,21 @@ import { responsiveHeight,
 
 
 class FloatingActionButton extends Component {
-state={ bgColor: '#54C0EB' };
+/*state={ bgColor: '#54C0EB', textColor: 'white' };
 changeBg = () => {
-  if (this.state.bgColor === 'green') {
-    this.setState({ bgColor: '#54C0EB' });
+  if (this.state.bgColor === 'grey') {
+    this.setState({ bgColor: '#54C0EB', textColor: 'white' });
   } else {
-    this.setState({ bgColor: 'green' });
+    this.setState({ bgColor: 'grey', textColor: '#54C0EB' });
   }
-}
+}*/
 render() {
 return (
   <TouchableOpacity
    style={[styles.containerStyle, { backgroundColor: this.props.bgColor }]}
   onPress={this.props.onPress}
   >
-  <Text style={styles.textStyle}>{this.props.label}</Text>
+  <Text style={[styles.textStyle, { color: this.props.textColor }]}>{this.props.label}</Text>
   </TouchableOpacity>
 );
 }
@@ -37,7 +37,6 @@ const styles = {
     margin: 8
   },
   textStyle: {
-    color: 'white',
     fontSize: responsiveFontSize(5)
   },
 

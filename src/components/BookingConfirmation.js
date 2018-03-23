@@ -1,32 +1,34 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
+import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 import { Button, List } from './commonComponents';
-import images from '../../images';
+import * as actions from '../actions';
 
-export default class BookingConfirmation extends Component {
-  confirmationData = [
-    {
-      key: 1,
-      from: 'DLF IT PARK',
-      to: 'Pallavaram',
-      date: '13/15/2018',
-      boardingTime: '12:45 PM'
-    },
-  ];
+class BookingConfirmation extends Component {
   render() {
-    var imgsrc = this.props.shiftType === 'adhoc' ? images.iconTo : images.iconToandFro;
+    //console.log('conf', this.props);
     return (
       <View style={{ flex: 1 }}>
         <List
         listType={'cabConfirmation'}
-        data={this.confirmationData}
-        imgsrc={imgsrc}
+        data={this.props.data}
+        imgsrc={this.props.imgsrc}
         />
         <Button
-        onPress={() => Actions.menuScreen()}
+        onPress={() => {
+            this.props.submitCabRequest(this.props.action);
+            Actions.menuScreen();
+          }}
         > Book </Button>
       </View>
     );
   }
 }
+function mapStateToProps(state) {
+  if (state.cabCategory.isShiftCab) {
+    return { data: state.shiftCabData.datesArray };
+  }
+  return { data: state.adhocCabData.datesArray };
+}
+export default connect(mapStateToProps, actions)(BookingConfirmation);
