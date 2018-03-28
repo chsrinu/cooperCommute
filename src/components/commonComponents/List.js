@@ -35,6 +35,7 @@ class List extends Component {
   }
 
   render() {
+    console.log('list', this.props.data);
     return (
       <FlatList
         data={this.props.data}

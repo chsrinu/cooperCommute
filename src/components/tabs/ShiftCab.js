@@ -29,7 +29,7 @@ addDateToArray(d, ar, i) {
   var str = d.toDateString();
   ar.push({ key: i,
      day: str.substring(0, 3, 3),
-  date: `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}` });
+  date: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}` });
 }
   render() {
     return (

@@ -1,0 +1,16 @@
+[
+  {
+  "empId": 123456,
+  "empName": "User1",
+  "empDept": "Engineering",
+  "empEmail": "hi.user1@mrcooper.com",
+  "empPhone": "987654321",
+  "mgrId": "121212",
+  "mgrName": "Mohan",
+  "mgrEmailId": "manager@nsm.com",
+  "rqstType": "Round",
+  "rqstDt": "2018-02-28",
+  "rqstInTm": "12:00:00",
+  "rqstOutTm": "21:00:00",
+  }
+]

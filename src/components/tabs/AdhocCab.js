@@ -26,7 +26,7 @@ class AdhocCab extends Component {
           onConfirm={this.handleDatePicked}
           onCancel={this.hideDateTimePicker}
           mode='time'
-          is24Hour={false}
+          is24Hour
           datePickerModeAndroid={'calendar'}
         />
         <Button onPress={() => this.props.showResetTimer()}> Reset </Button>

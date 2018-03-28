@@ -81,7 +81,7 @@ class ShiftCabListItem extends Component {
         bgColor={this.state.s1Color} textColor={this.state.s1TextColor} label={'S1'}
         onPress={() => this.updateCardSection('s1')}
         />
-        <CaptionText text={'6AM-3PM'} />
+        <CaptionText text={'06:00-15:00'} />
       </View>
       <View>
         <FloatingActionButton
@@ -90,7 +90,7 @@ class ShiftCabListItem extends Component {
         label={'S2'}
         onPress={() => this.updateCardSection('s2')}
         />
-        <CaptionText text={'2PM-11PM'} />
+        <CaptionText text={'14:00-23:00'} />
       </View>
       <View>
         <FloatingActionButton
@@ -98,7 +98,7 @@ class ShiftCabListItem extends Component {
          textColor={this.state.s3TextColor}
          onPress={() => this.updateCardSection('s3')}
         />
-        <CaptionText text={'10PM-7AM'} />
+        <CaptionText text={'22:00-07:00'} />
       </View>
       <DateAndDay date={date} day={day} />
       </CardSection>

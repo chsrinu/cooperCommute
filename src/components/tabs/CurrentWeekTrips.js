@@ -3,33 +3,18 @@ import axios from 'axios';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { List } from '../commonComponents';
-
+import * as actions from '../../actions';
 
 class CurrentWeekTrips extends Component {
   state = { data: [], spinnerVisibility: true }
-  /*var confirmationData = [
-    {
-      key: 1,
-      from: 'Kodambakkam',
-      to: 'DLF IT park',
-      date: '13/15/2018',
-      boardingTime: '12:45 PM',
-      shiftType: 'adhoc'
-    },
-    {
-      key: 1,
-      from: 'Guindy',
-      to: 'DLF IT park',
-      date: '13/15/2018',
-      boardingTime: '12:45 PM',
-      shiftType: 'shift'
-    },
-  ];*/
-  componentWillUpdate() {
-    axios
-    .get('httpRequest')
-    .then(response => this.setState({ spinnerVisibility: false, data: response }));
-  }
+  componentWillMount() {
+    axios.post('http://10.79.8.122:8080/getMyCabSchedule/ ', { empId: '350629' })
+    .then(response => {
+      //console.log('gotresponse', response.data);
+      this.setState({ data: response.data });
+      this.props.getScheduledCabs(response.data);
+    });
+}
   render() {
     return (
     <View>
@@ -41,5 +26,12 @@ class CurrentWeekTrips extends Component {
     );
   }
 }
+<<<<<<< Updated upstream
 
 export default CurrentWeekTrips
+=======
+/*function mapStateToProps(state) {
+  return { data: state.manageTripData };
+}*/
+export default connect(null, actions)(CurrentWeekTrips);
+>>>>>>> Stashed changes

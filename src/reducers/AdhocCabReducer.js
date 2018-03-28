@@ -7,9 +7,7 @@ import {
 
 function getTime(t) {
   console.log('time in reducer', t);
-  let hours = t.getHours();
-  let h = hours <= 12 ? hours : hours - 12;
-  const session = (hours === h && h !== 12) ? 'AM' : 'PM';
+  let h = t.getHours();
   let m = t.getMinutes();
   if (h < 10) {
     h = `0${h}`;
@@ -17,7 +15,7 @@ function getTime(t) {
   if (m < 10) {
     m = `0${m}`;
   }
-  return `${h}:${m} ${session}`;
+  return `${h}:${m}`;
 }
 const INITIAL_STATE = {
   isDateTimePickerVisible: false,

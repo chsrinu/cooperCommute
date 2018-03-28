@@ -24,7 +24,7 @@ const ListText = ({ children }) => (
 );
 const TempText = ({ data, imgsrc }) => (
   <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
-    <ListText> {data.from} </ListText>
+    <ListText> {data.rqstFrmAddr} </ListText>
     <Image
       source={imgsrc}
       style={{
@@ -34,7 +34,7 @@ const TempText = ({ data, imgsrc }) => (
         alignSelf: 'center'
        }}
     />
-    <ListText> {data.to} </ListText>
+    <ListText> {data.rqstToAddr} </ListText>
   </View>
 );
 
@@ -46,10 +46,14 @@ state={ rejected: false }
   'My Alert Msg',
   [
     { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-    { text: 'OK', onPress: () => this.setState({ rejected: true }) },
+    { text: 'OK', onPress: () => this.rejectCab() },
   ],
   { cancelable: false }
 );
+  }
+  rejectCab() {
+    this.setState({ rejected: true });
+    //make a call to reject cab request for data.rqstDt
   }
   getTextViews(data, imgsrc) {
     if (this.state.rejected) {
@@ -63,8 +67,8 @@ state={ rejected: false }
       <CardSection>
         {this.getTextViews(data, imgsrc)}
         <View style={{ flex: 0.6, alignItems: 'center', justifyContent: 'center' }}>
-          <ListText> {data.date} </ListText>
-          <CaptionText text={data.boardingTime} />
+          <ListText> {data.rqstDt} </ListText>
+          <CaptionText text={data.rqstInTm} />
         </View>
         {!this.state.rejected && <TouchableHighlight onPress={() => this.alertBox()}>
         <Image

@@ -1,17 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import axios from 'axios';
 import { View } from 'react-native';
 import { List } from '../commonComponents';
 
 class TripToday extends Component {
-  state = { data: [], spinnerVisibility: true }
-  componentWillUpdate() {
-    axios
-    .get('httpRequest')
-    .then(response => this.setState({ spinnerVisibility: false, data: response }));
-  }
- confirmationData = [
+  //state = { data: [], spinnerVisibility: true }
+ /*confirmationData = [
     {
       key: 1,
       from: 'Guindy',
@@ -20,19 +14,19 @@ class TripToday extends Component {
       boardingTime: '12:45 PM',
       shiftType: 'shift'
     },
-  ];
+  ];*/
   render() {
     return (
     <View>
       <List
       listType={'TripToday'}
-      data={this.state.data}
+      data={this.props.data}
       />
     </View>
     );
   }
 }
 function mapStateToProps(state) {
-  return { data: state.currentWeekData.dailyData };
+  return { data: state.manageTripData.dailyData };
 }
 export default connect(mapStateToProps)(TripToday);
