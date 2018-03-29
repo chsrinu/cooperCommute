@@ -26,12 +26,5 @@ class CurrentWeekTrips extends Component {
     );
   }
 }
-<<<<<<< Updated upstream
 
 export default CurrentWeekTrips
-=======
-/*function mapStateToProps(state) {
-  return { data: state.manageTripData };
-}*/
-export default connect(null, actions)(CurrentWeekTrips);
->>>>>>> Stashed changes

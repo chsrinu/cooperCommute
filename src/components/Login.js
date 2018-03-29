@@ -47,7 +47,9 @@ export default class Login extends Component<Props> {
        <CheckBox 
         label = 'Remember Me'
         style = {{marginTop:10}}/>
-       <Button  onPress={() => {Actions.main(); Actions.menuScreen()}} style={{marginTop:20}} children={'Login'}/>
+       <Button  onPress={() => {Actions.main(); Actions.menuScreen()}} style={{marginTop:20}} >
+            Login
+       </Button>
        </View>
      </View>
     );
