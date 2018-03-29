@@ -20,11 +20,11 @@ class CurrentWeekTrips extends Component {
     <View>
       <List
       listType={'manageCabs'}
-      data={this.data}
+      data={this.state.data}
       />
     </View>
     );
   }
 }
 
-export default CurrentWeekTrips
+export default connect(null, actions)(CurrentWeekTrips);

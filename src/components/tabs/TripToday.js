@@ -5,16 +5,6 @@ import { List } from '../commonComponents';
 
 class TripToday extends Component {
   //state = { data: [], spinnerVisibility: true }
- /*confirmationData = [
-    {
-      key: 1,
-      from: 'Guindy',
-      to: 'DLF IT park',
-      date: '13/15/2018',
-      boardingTime: '12:45 PM',
-      shiftType: 'shift'
-    },
-  ];*/
   render() {
     return (
     <View>

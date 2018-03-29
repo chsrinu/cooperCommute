@@ -9,14 +9,12 @@ const INITIAL_STATE = {
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ACTION_SCHEDULED_CABS:
-
-    //console.log('received', action.payload);
       return { ...state, dailyData: getTodaysDate(action.payload) };
     default: return { state };
   }
 };
 function getTodaysDate(data) {
-  //console.log(data);
+  console.log(data);
     var currentTrip = [];
     var d = new Date();
     var date = d.getDate();
@@ -30,6 +28,7 @@ function getTodaysDate(data) {
     //filter todays date in this format 2018-12-25
     for (var i in data) {
     if (data[i].rqstDt === '2018-12-25') {
+      console.log(data[i]);
       currentTrip.push(data[i]);
     }
   }

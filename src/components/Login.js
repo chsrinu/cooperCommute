@@ -5,6 +5,7 @@
  */
 
 import React, { Component } from 'react';
+import axios from 'axios';
 import {
   Platform,
   StyleSheet,
@@ -20,36 +21,44 @@ import { responsiveHeight,
 import { Actions, ActionConst } from 'react-native-router-flux';
 import { Button, EditText } from './commonComponents';
 import images from '../../images';
-import CheckBox from 'react-native-checkbox'
 
 type Props = {};
 export default class Login extends Component<Props> {
+
   static navigationOptions = {
     header:null
 }
+state = { loginSuccess: false }
 
+loginSuccess(data) {
+  this.props.loginSuccess(data)
+  Actions.main();
+  Actions.menuScreen();
+}
  render() {
     return (
     <View style={styles.container}>
-      <View style={{flex:0.8, marginHorizontal: 25, marginTop: 20}}>
-        <View style={{flexDirection: 'row', paddingBottom:20}}>
+      <View style={{flex:0.8, marginHorizontal: 25, marginTop: 20}} >
+        <View style={{flexDirection: 'row', paddingBottom: 20 }}>
           <Image  style={{width: responsiveWidth(65),height: responsiveHeight(8)}} source={images.cooper} />
-          <Image  style={{width: responsiveWidth(25),height: responsiveHeight(8)}} source={images.car}/>  
+          <Image  style={{width: responsiveWidth(25),height: responsiveHeight(8)}} source={images.car}/>
         </View>
         <View style={{ justifyContent:'center'}}>
-          <Image style={{marginLeft: responsiveWidth(10),width: responsiveWidth(80),height: responsiveHeight(8)}} source={images.commute}/>
+          <Image style={{ marginLeft: responsiveWidth(10), width: responsiveWidth(80),height: responsiveHeight(8)}} source={images.commute}/>
         </View>
       </View>
        <View style={styles.viewStyle1}>
        <Text style={styles.textStyle}>Login</Text>
-       <EditText placeText={'Enter the username'} text={'Email:'} sEn={false}/>
-       <EditText placeText={'Enter the password'} text={'Password:'} sEn={true}/>
-       <CheckBox 
-        label = 'Remember Me'
-        style = {{marginTop:10}}/>
-       <Button  onPress={() => {Actions.main(); Actions.menuScreen()}} style={{marginTop:20}} >
-            Login
-       </Button>
+       <EditText placeText={'Enter the username'} text={'Email:'} sEn={false} />
+       <EditText placeText={'Enter the password'} text={'Password:'} sEn={true} />
+
+       <Button
+       style={{ marginTop: 20 }}
+       onPress={() => {
+         axios.post('http://10.79.8.122:8080/profile', { empId: 350629 })
+         .then(response => this.props.loginSuccess(response.data));
+       }}
+       >Login</Button>
        </View>
      </View>
     );
@@ -59,7 +68,7 @@ export default class Login extends Component<Props> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection:'column',
+    flexDirection: 'column',
     backgroundColor: '#004261',
     },
   viewStyle1:{

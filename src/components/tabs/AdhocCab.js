@@ -45,7 +45,7 @@ class AdhocCab extends Component {
 function mapStateToProps(state) {
 return {
      isDateTimePickerVisible: state.adhocCabData.isDateTimePickerVisible,
-     pickUpTime: state.adhocCabData.datesArray[0].boardingTime
+     pickUpTime: state.adhocCabData.datesArray[0].rqstInTm
    };
  }
 export default connect(mapStateToProps, actions)(AdhocCab);

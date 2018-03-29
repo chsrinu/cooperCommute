@@ -35,9 +35,9 @@ export default (state = INITIAL_STATE, action) => {
       console.log(data);
       dArray = state.datesArray;
       for (var i in dArray) {
-        var timeAr = dArray[i].boardingTime.split('-');
+        var timeAr = dArray[i].rqstInTm.split('-');
         data.rqstType = 'round';
-        data.rqstDate = dArray[i].date;
+        data.rqstDate = dArray[i].rqstDt;
         data.rqstInTm = timeAr[0];
         data.rqstOutTm = timeAr[1];
         axios.post('http://10.79.8.251:8080/submitCabRequest', data).then(console.log('success'));
@@ -62,10 +62,10 @@ function checkExistance(dArray, action, arrayOperation) {
   if (!found && arrayOperation === 'add') {
     var temp = {
       key: dArray.length,
-      date: action.payload.dateKey,
-      boardingTime: getExactTime(action.payload.timeKey),
-      from: 'DLF IT Park',
-      to: 'Pallavaram',
+      rqstDt: action.payload.dateKey,
+      rqstInTm: getExactTime(action.payload.timeKey),
+      rqstFrmAddr: 'DLF IT Park',
+      rqstToAddr: 'Pallavaram',
       cabType: action.payload.cabType
     };
     dArray.push(temp);

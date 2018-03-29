@@ -22,10 +22,10 @@ const INITIAL_STATE = {
   datesArray: [
     {
       key: 0,
-      date: getTodaysDate(),
-      boardingTime: getTime(new Date()),
-      from: 'DLF IT Park',
-      to: 'Pallavaram',
+      rqstDt: changeDateFormat(new Date()),
+      rqstInTm: getTime(new Date()),
+      rqstFrmAddr: 'DLF IT Park',
+      rqstToAddr: 'Pallavaram',
     }
   ]
 };
@@ -38,7 +38,7 @@ export default (state = INITIAL_STATE, action) => {
           return { ...state, isDateTimePickerVisible: action.payload };
     case ACTION_PICKUP_TIME:
         var dArray = state.datesArray;
-        dArray[0].boardingTime = getTime(action.payload);
+        dArray[0].rqstInTm = getTime(action.payload);
         return { ...state, isDateTimePickerVisible: false, datesArray: dArray };
     case ACTION_ADHOC_CAB_REQUEST:
       console.log('adhoc cab request sent');
@@ -47,8 +47,16 @@ export default (state = INITIAL_STATE, action) => {
       return { ...state };
   }
 };
-function getTodaysDate() {
-  var d = new Date();
-  var str = d.toDateString();
-  return `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
+
+function changeDateFormat(d) {
+  var date = d.getDate();
+  var month = d.getMonth() + 1;
+  var year = d.getFullYear();
+  if (month < 10) {
+    month = '0' + month;
+  }
+  if (date < 10) {
+      date = '0' + date;
+  }
+  return `${year}-${month}-${date}`;
 }

@@ -7,7 +7,7 @@ import * as actions from '../actions';
 
 class BookingConfirmation extends Component {
   render() {
-    //console.log('conf', this.props);
+    console.log('conf', this.props);
     return (
       <View style={{ flex: 1 }}>
         <List

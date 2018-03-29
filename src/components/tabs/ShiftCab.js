@@ -29,7 +29,19 @@ addDateToArray(d, ar, i) {
   var str = d.toDateString();
   ar.push({ key: i,
      day: str.substring(0, 3, 3),
-  date: `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}` });
+  date: this.changeDateFormat(d) });
+}
+changeDateFormat(d) {
+  var date = d.getDate();
+  var month = d.getMonth() + 1;
+  var year = d.getFullYear();
+  if (month < 10) {
+    month = '0' + month;
+  }
+  if (date < 10) {
+      date = '0' + date;
+  }
+  return `${year}-${month}-${date}`;
 }
   render() {
     return (
