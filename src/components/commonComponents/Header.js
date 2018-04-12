@@ -1,18 +1,22 @@
-import { Text, View, Image, TouchableOpacity } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import React from 'react';
 import { responsiveHeight,
           responsiveWidth,
           responsiveFontSize
         } from 'react-native-responsive-dimensions';
 import images from '../../../images';
+import { CustomAlert } from '../commonComponents';
 
 const Header = (props) =>
 (
     <View style={Styles.viewStyle}>
      <Text style={Styles.textStyle}> {props.headerText}</Text>
-     <TouchableOpacity style={Styles.ButtonStyles} onPress={props.onPress}>
-        <Image source={images.iconLogOut} style={Styles.ButtonStyles} />
-     </TouchableOpacity>
+     <CustomAlert
+     title={'Logout'}
+     message={'Are you sure you want to Logout'}
+     functionOk={props.onPress}
+     ><Image source={images.iconLogOut} style={Styles.ButtonStyles} />
+     </CustomAlert>
     </View>
 );
 

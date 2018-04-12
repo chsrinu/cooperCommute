@@ -13,6 +13,7 @@ const Button = ({ onPress, children }) => (
 const styles = {
   ButtonStyles: {
   backgroundColor: 'white',
+  alignItems: 'center',
   borderRadius: 5,
   padding: 10,
   marginLeft: 5,

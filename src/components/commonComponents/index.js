@@ -9,3 +9,5 @@ export * from './NormalText';
 export * from './NumericButtons';
 export * from './TextHeading';
 export * from './TextInput';
+export * from './Spinner';
+export * from './CustomAlert';

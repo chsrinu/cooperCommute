@@ -14,7 +14,7 @@ class ImageCarousal extends Component {
         <Carousel
         indicatorOffset={10}
         indicatorColor="#FFFFFF"
-        delay={3000}
+        animate={false}
         >
         <View style={styles.containerStyle}>
           <Image source={images.menuBookCab} />

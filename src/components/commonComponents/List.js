@@ -14,21 +14,23 @@ class List extends Component {
   componentWillUpdate() {
     LayoutAnimation.spring();
   }
-  renderRow(item, props) {
+  renderRow(item, index, props) {
     switch (props.listType) {
       case 'bookCab':
-        return <ShiftCabListItem data={item} />;
+        return <ShiftCabListItem data={item} index={index} />;
       case 'cabConfirmation':
         return (<ConfirmOrCancelCabListItem
                   data={item}
+                  index={index}
                   imgsrc={this.props.imgsrc}
         />);
       case 'manageCabs':
       case 'TripToday' :
+          console.log(item);
           return (<ConfirmOrCancelCabListItem
                     data={item}
-                    imgsrc={props.imgsrc}
-                    rejectImage={images.rejectArrow}
+                    index={index}
+                    imgsrc={item.rqstTrpType === 'Round' ? images.iconToandFro : images.iconTo}
           />);
       default :
     }
@@ -39,7 +41,7 @@ class List extends Component {
     return (
       <FlatList
         data={this.props.data}
-        renderItem={({ item }) => this.renderRow(item, this.props)}
+        renderItem={({ item, index }) => this.renderRow(item, index, this.props)}
       />
     );
   }

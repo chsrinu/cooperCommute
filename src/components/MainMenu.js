@@ -1,26 +1,20 @@
-import React from 'react';
-import { View, Alert } from 'react-native';
+import React, { Component } from 'react';
+import { View } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import ImageCarousal from './ImageCarousal';
 import { Header } from './commonComponents';
 
-function alertBox() {
-  Alert.alert(
-'Logout',
-'Are you sure you want to Logout',
-[
-  { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-  { text: 'OK', onPress: () => this.setState({ rejected: true }) },
-],
-{ cancelable: false }
-);
-}
-
- const MainMenu = () => (
+class MainMenu extends Component {
+  logOut() {
+    Actions.Login();
+  }
+render() {
+  return (
    <View style={{ flex: 1 }}>
       <View style={{ flex: 0.1 }}>
         <Header
         headerText='COOPERCOMMUTE'
-        onPress={alertBox}
+        onPress={this.logOut}
         />
       </View>
       <View style={{ flex: 0.9 }}>
@@ -29,5 +23,6 @@ function alertBox() {
       </View>
    </View>
  );
-
+}
+}
 export default MainMenu;

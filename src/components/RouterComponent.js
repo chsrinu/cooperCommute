@@ -7,23 +7,24 @@ import { BookAndManageCabs, UserProfile } from './submenu';
 import BookingConfirmation from './BookingConfirmation';
 import Splash from './Splash';
 import Login from './Login';
-export default class RouterComponent extends Component {
 
+export default class RouterComponent extends Component {
 
 render() {
   const { sceneStyles, navigationBarStyle, titleStyle } = styles;
 
   return (
-
   <Router>
-    <Scene
+    {/*<Scene
     key='splash'
     hideNavBar
-    component={Splash}/>
-    <Scene 
+    component={Splash}
+    />*/}
+    <Scene
     key='Login'
     hideNavBar
-    component={Login}/>
+    component={Login}
+    />
     <Scene
       key='main'
       titleStyle={titleStyle}

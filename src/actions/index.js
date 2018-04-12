@@ -6,7 +6,8 @@ import {
         ACTION_CURRENT_WEEK_DATES,
         ACTION_SHIFT_UNSELECTED,
         ACTION_IS_SHIFT_CAB,
-        ACTION_SCHEDULED_CABS
+        ACTION_SCHEDULED_CABS,
+        ACTION_LOGIN_SUCCESS
       } from '../constants';
 
 export const ResetTimer = (hours, minutes, session) => (
@@ -65,5 +66,11 @@ export const getScheduledCabs = (data) => (
   {
       type: ACTION_SCHEDULED_CABS,
       payload: data
+  }
+);
+export const loginSuccess = (data) => (
+  {
+    type: ACTION_LOGIN_SUCCESS,
+    payload: data
   }
 );

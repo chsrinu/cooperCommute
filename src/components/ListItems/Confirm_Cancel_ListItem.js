@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text, Image, TouchableHighlight, Alert } from 'react-native';
+import { View, Text, Image, Alert } from 'react-native';
+import Swipeout from 'react-native-swipeout';
 import {
   responsiveWidth,
   responsiveHeight,
   responsiveFontSize } from 'react-native-responsive-dimensions';
 import { CardSection, CaptionText } from '../commonComponents';
-import images from '../../../images';
 import { ListItemTextSize } from '../../constants';
 
 const ListText = ({ children }) => (
@@ -23,8 +23,9 @@ const ListText = ({ children }) => (
 
 );
 const TempText = ({ data, imgsrc }) => (
+
   <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'center' }}>
-    <ListText> {data.rqstFrmAddr} </ListText>
+    <ListText> {data.empHomeArea} </ListText>
     <Image
       source={imgsrc}
       style={{
@@ -39,50 +40,49 @@ const TempText = ({ data, imgsrc }) => (
 );
 
 class ConfirmOrCancelCabListItem extends Component {
-state={ rejected: false }
+
+  /*getTextViews(data, imgsrc) {
+    if (this.state.rejected) {
+      return (<ListText style={{ flex: 0.4 }}>Reject request sent </ListText>);
+    }
+    return (<TempText style={{ flex: 0.4 }} data={data} imgsrc={imgsrc} />);
+  }*/
   alertBox() {
     Alert.alert(
   'Alert Title',
   'My Alert Msg',
   [
     { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-    { text: 'OK', onPress: () => this.rejectCab() },
+    { text: 'OK', onPress: () => console.log('ok pressed') },
   ],
   { cancelable: false }
 );
-  }
-  rejectCab() {
-    this.setState({ rejected: true });
-    //make a call to reject cab request for data.rqstDt
-  }
-  getTextViews(data, imgsrc) {
-    if (this.state.rejected) {
-      return (<ListText style={{ flex: 0.4 }}>Reject request sent </ListText>);
-    }
-    return (<TempText style={{ flex: 0.4 }} data={data} imgsrc={imgsrc} />);
-  }
+}
   render() {
-    const { data, rejectImage, imgsrc } = this.props;
+    const { data, imgsrc } = this.props;
     return (
+      <Swipeout {...swipeSettings}>
       <CardSection>
-        {this.getTextViews(data, imgsrc)}
+        <TempText style={{ flex: 0.4 }} data={data} imgsrc={imgsrc} />
         <View style={{ flex: 0.6, alignItems: 'center', justifyContent: 'center' }}>
           <ListText> {data.rqstDt} </ListText>
           <CaptionText text={data.rqstInTm} />
         </View>
-        {!this.state.rejected && <TouchableHighlight onPress={() => this.alertBox()}>
-        <Image
-          source={rejectImage}
-          style={{
-            height: responsiveHeight(8),
-            width: responsiveWidth(8),
-            alignSelf: 'center'
-           }}
-        />
-        </TouchableHighlight>}
       </CardSection>
+      </Swipeout>
     );
   }
 }
+const swipeSettings = {
+    autoClose: true,
+    right: [
+      {
+        onPress: () => {
 
+        },
+        text: 'Cancel',
+        type: 'delete'
+      }
+    ]
+};
 export default ConfirmOrCancelCabListItem;

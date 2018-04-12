@@ -17,3 +17,4 @@ export const ListItemTextSize = 2.75;
 export const ACTION_SHIFT_CAB_REQUEST = 'submitShiftCabRequest';
 export const ACTION_ADHOC_CAB_REQUEST = 'submitAdhocCabRequest';
 export const ACTION_SCHEDULED_CABS = 'getScheduledCabs';
+ export const ACTION_LOGIN_SUCCESS = 'loginSuccess';
